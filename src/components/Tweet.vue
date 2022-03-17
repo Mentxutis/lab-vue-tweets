@@ -1,38 +1,46 @@
 <template>
+
   <div className="tweet">
-    <img
-      src="https://i.imgur.com/9yw1Fyw.jpg"
-      className="profile"
-      alt="profile"
-    />
-
-    <div className="body">
-      <div className="top">
-        <span className="user">
-          <span className="name">Ironhack</span>
-          <span className="handle">@ironhack</span>
-        </span>
-
-        <span className="timestamp">Nov 30, 2020</span>
-      </div>
-
-      <p className="message">
-        On December 7th, we will be hosting a #webinar that will introduce you
-        to #SQL! Are you ready? 🚀
-      </p>
-
-      <div className="actions">
-        <!-- Font Awesome icons -->
-        <i class="far fa-comment"></i>
-        <i class="fas fa-retweet"></i>
-        <i class="far fa-heart"></i>
-        <i class="fas fa-share"></i>
-      </div>
-    </div>
-
-    <i class="fas fa-ellipsis-h"></i>
-  </div>
+        <ProfileImage image="user.image" />
+      <div className="body">
+        <div className="top">       
+            <User/>
+            <Timestamp/>
+            <Message/>
+            <Actions/>
+            <i class="fas fa-ellipsis-h"></i>
+        </div>  
+      </div>  
+  </div>  
+ 
 </template>
+
+<script>
+import { stringifyStyle } from "@vue/shared";
+import ProfileImage from "./ProfileImage.vue";
+import User from "./User.vue";
+import Message from "./Message.vue";
+import Timestamp from './Timestamp.vue';
+import Actions from "./Actions.vue";
+
+
+
+export default {
+  components: { Timestamp, Actions ,Profileimage,User, Message,},
+  name: "Tweet",
+  props: {
+    user:String,
+    timestamp:String,
+    message:String,
+    name:String,
+    handle:String,
+    profileimage: String,
+
+    
+  }
+  
+}
+</script>
 
 <style scoped>
 a {

@@ -1,17 +1,37 @@
 <template>
   <div class="app">
-    <Tweet />
+
+    <Tweet
+        v-for= "tweet in tweets"
+        :key=" tweet.id"
+        :name= "tweet.name"
+        :handle="tweet.hadle"
+        :timestamp="tweet.timestamp"
+        :message="tweet.message"
+        :img="tweet.profileimage"
+    />
+
   </div>
 </template>
 
 <script>
 
 import Tweet from './components/Tweet.vue';
+import ProfileImage from "./components/ProfileImage.vue";
 
 export default {
-    data: () => ({
+  name: "App",
+  components:{
+    Tweet,
+    ProfileImage,
+    message,
+    hadle,
+    user,
+  },
+  data: () => ({
         tweets: [
             {
+                
                 user: {
                     name: "Thoughts of Dog®",
                     image: "https://i.imgur.com/b0EdHVV.jpg",
@@ -21,6 +41,7 @@ export default {
                 message: "the human likes to say. that i live here rent free. but i would argue. this housing accommodation. is my payment. for a lifetime of love. and excellent company",
             },
             {
+                
                 user: {
                     name: "Thoughts of Dog®",
                     image: "https://i.imgur.com/b0EdHVV.jpg",
@@ -30,6 +51,7 @@ export default {
                 message: "sometimes. the human presses their noggin against mine. to figure out what i’m thinking. so i just think really hard. about how much i love them. and hope they figure it out",
             },
             {
+                
                 user: {
                     name: "Thoughts of Dog®",
                     image: "https://i.imgur.com/b0EdHVV.jpg",
@@ -40,7 +62,7 @@ export default {
             },
         ]
     }),
-    components: { Tweet }
+   
 }
 </script>
 
